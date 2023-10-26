@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github](https://your-solution-url.com)
+- Solution URL: [Github](https://github.com/bderrickmatthew/interactive-rating-component-main)
 - Live Site URL: [Github Pages](https://your-live-site-url.com)
 
 ## My process
@@ -78,7 +78,7 @@ nums.forEach(num => {
 I look forward to focusing on javascript and DOM manipulation in the upcoming weeks
 
 ### Useful resources
-- 
+- Javascript Offline Documentation using Zeal.
 
 ## Author
 
