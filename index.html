@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <section class="rating_state visible" id="rating_state">
+      <!-- Rating state start -->
+      <article class="icon circle">
+        <img src="images/icon-star.svg" alt="icon-star">
+      </article>
+
+      <article class="rating_desc">
+        <h1 class="title">How did we do?</h1>
+
+        <p class="description">
+          Please let us know how we did with your support request. All feedback is appreciated
+          to help us improve our offering!
+        </p>
+      </article>
+
+      <article class="num_rating" id="num_rating">
+        <button class="circle num" id="rating_1">1</button>
+        <button class="circle num" id="rating_2">2</button>
+        <button class="circle num" id="rating_3">3</button>
+        <button class="circle num" id="rating_4">4</button>
+        <button class="circle num" id="rating_5">5</button>
+      </article>
+      <button class="btn" id="submit">Submit</button>
+
+
+      <!-- Rating state end -->
+    </section>
+
+    <section class="thankYou_state hidden" id="thankYou_state">
+      <!-- Thank you state start -->
+      <article class="upper">
+        <img src="images/illustration-thank-you.svg" alt="thank you">
+        <p>
+          You selected <!-- Add rating here --><span id="rating"></span> out of 5
+        </p>
+      </article>
+
+      <article class="bottom">
+        <h1 class="title">Thank you!</h1>
+
+        <p>
+          We appreciate you taking the time to give a rating. If you ever need more support,
+          don’t hesitate to get in touch!
+        </p>
+      </article>
+      <!-- Thank you state end -->
+    </section>
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        rel="noopener noreferrer">Frontend Mentor</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/bderrickmatthew">bderrickmatthew</a>.
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+      // get the element
+      let nums = document.querySelectorAll(".num_rating button");
+      let rating = document.getElementById("rating");
+      let submitBtn = document.getElementById("submit");
+      let thankYouState = document.getElementById("thankYou_state");
+      let ratingState = document.getElementById("rating_state");
+      let tooltip = document.getElementById("warning");
+
+      //loop through the buttons and add the active class to the current/clicked button
+      nums.forEach(num => {
+        num.addEventListener("click", function () {
+          nums.forEach(element => {
+            element.classList.remove("bg_active");
+            element.classList.add("num");
+          });
+          this.classList.add('bg_active');
+          this.classList.remove('num');
+
+          //store the value of each button
+          const value = num.innerText;
+          //console.log(value);
+          changeState(value);
+        });
+      });
+
+      //param: val
+      //changes state from Rating to Thank You
+      function changeState(val) {
+        submitBtn.addEventListener("click", function () {
+
+          //sets the clicked on rating number to the span with id of rating
+          rating.innerText = val;
+
+          //hides the rating state
+          ratingState.classList.remove("visible");
+          ratingState.classList.add("hidden");
+
+          //shows the thank you state
+          thankYouState.classList.remove("hidden");
+          thankYouState.classList.add("visible");
+
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

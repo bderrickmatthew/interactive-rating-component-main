@@ -1,0 +1,224 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+/*----------------------------*/
+
+:root {
+    /* Primary */
+    --orange: hsl(25, 97%, 53%);
+
+    /* Neutral */
+    --white: hsl(0, 0%, 100%);
+    --lightGrey: hsl(217, 12%, 63%);
+    --mediumGrey: hsl(216, 12%, 54%);
+    --darkBlue: hsl(213, 19%, 18%);
+    --veryDarkBlue: hsl(216, 12%, 8%);
+
+    /* alt */
+    --altDarkBlue:  #2b3033;
+
+    /* font-weights */
+    --fw4: 400;
+    --fw7: 700;
+
+    /* font-size (paragraph) */
+    --fsz: 15px;
+
+    /* widths */
+    --mobile: 375px;
+    --desktop: 1440px;
+}
+
+
+body {
+    max-width: var(--mobile);
+    font-family: Overpass, Lato, sans-serif;    
+    background-color: var(--veryDarkBlue);
+    color: var(--lightGrey);
+    margin: 7em auto;
+}
+
+.rating_state {
+    background-color: var(--darkBlue);
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    shape-outside: circle();
+    clip-path: circle();
+    background-color: var(--altDarkBlue);
+}
+
+.icon {    
+    padding-top: 15px;   
+    margin-bottom: 20px;
+}
+
+
+.icon img {
+    margin: auto;
+    width: 40%;    
+}
+
+.title {
+    color: var(--white);
+    font-weight: var(--fw7);
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.rating_desc {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: var(--fsz);
+    font-weight: var(--fw4);
+}
+
+.num_rating  {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.num_rating .circle{
+    border: none;
+    font-weight: var(--fw7);
+    color: var(--mediumGrey);
+}
+
+.num:hover {
+    cursor: pointer;
+    background-color: var(--mediumGrey);
+    color: var(--white);
+}
+
+/* active state when clicked */
+.bg_active, .bg_active:hover {
+    cursor: pointer;
+    background-color: var(--orange);
+    color: var(--white) !important;
+}
+
+.btn {
+    width: 100%;
+    background-color:var(--orange);
+    border: none;
+    height: 3em;
+    border-radius: 20px;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: var(--fw7);
+    margin-bottom: 1em;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--white);
+    color: var(--orange);
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 25s ease-in-out;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    transition: opacity 25s ease-in-out;
+}
+
+/* thank you state */
+.thankYou_state {
+    background-color: var(--darkBlue);
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;   
+}
+
+.upper img {
+    margin: auto;
+}
+
+.upper p {
+    margin: 20px auto 20px auto;
+    background-color:  var(--altDarkBlue);
+    color: var(--orange);
+    width: 55%;
+    padding: 5px 0 5px 0;
+    border-radius: 20px;
+    font-weight: var(--fw7);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* media queries */
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 1440px;
+        display: grid;
+        place-content: center;
+    }
+   main {
+    width: 50%;
+    margin: auto;
+   }
+}
+
+
+/* attribution */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    margin-top: 1em;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
